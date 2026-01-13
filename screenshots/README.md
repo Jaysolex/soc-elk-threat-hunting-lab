@@ -1,97 +1,139 @@
-# Screenshots – SOC ELK Threat Hunting Lab
+# 📸 Screenshots – SOC ELK Threat Hunting Lab
 
-This directory contains step-by-step validation screenshots proving the successful deployment and operation of the ELK-based SOC threat hunting lab.
+This directory contains step-by-step validation screenshots proving the successful deployment and operation of an **ELK-based SOC threat hunting lab**.
 
-Each screenshot corresponds to a key milestone in the pipeline:
-Suricata → Filebeat → Logstash → Elasticsearch → Kibana.
+Each screenshot represents a verified milestone in the pipeline:
 
----
-
-## Screenshot Index
-
-### 01–05: Core Services
-- **01-elasticsearch-running.png**  
-  Elasticsearch service running and healthy
-
-- **02-kibana-running.png**  
-  Kibana service running and accessible
-
-- **03-logstash-running.png**  
-  Logstash service active
-
-- **04-filebeat-running.png**  
-  Filebeat service running on the sensor
+**Suricata → Filebeat → Logstash → Elasticsearch → Kibana → Threat Hunting**
 
 ---
 
-### 06–10: Log Ingestion
-- **06-suricata-eve-json.png**  
-  Suricata generating `eve.json` logs
+## 01–05: Core Services & Connectivity
 
-- **07-filebeat-config.png**  
-  Filebeat configured to read Suricata logs
+**01-ubuntu-elasticsearch-running.png**  
+Elasticsearch service running and healthy on the Ubuntu server.
 
-- **08-logstash-pipeline.png**  
-  Logstash pipeline configuration (Suricata)
+**02-ubuntu-kibana-running.png**  
+Kibana service running and accessible via web UI.
 
-- **09-logstash-config-test.png**  
-  Logstash pipeline validation successful
+**03-ubuntu-logstash-pipeline-running.png**  
+Logstash pipeline service running.
 
----
+**04-network-kali-to-ubuntu-ping.png**  
+Network connectivity confirmed between Kali sensor and Ubuntu ELK server.
 
-### 11–17: Elasticsearch Validation
-- **11-elasticsearch-connection.png**  
-  Successful authentication to Elasticsearch
-
-- **12-index-created.png**  
-  `soc-lab-suricata-*` index created
-
-- **13-index-listing.png**  
-  Multiple daily Suricata indices present
-
-- **17-data-flow-confirmation.png**  
-  Events flowing end-to-end into Elasticsearch
+**05-ubuntu-logstash-5044-listening.png**  
+Logstash listening on Beats input port `5044`.
 
 ---
 
-### 18–21: Kibana & Threat Hunting
-- **18-kibana-login.png**  
-  Kibana UI accessible after setup
+## 06–10: Log Ingestion & Sensor Validation
 
-- **19-data-view-created.png**  
-  Data view for `soc-lab-suricata-*`
+**06-kali-to-ubuntu-5044-nc.png**  
+Connectivity test to Logstash Beats port from Kali.
 
-- **21-discover-suricata-events.png**  
-  Suricata HTTP and flow events visible in Discover  
-  (Key fields: `@timestamp`, `event_type`, `src_ip`, `dest_ip`, `dest_port`, `http.url`)
+**06c-kali-default-route-working.png**  
+Kali Linux default route verified.
 
----
+**07-kali-suricata-running.png**  
+Suricata IDS running on Kali sensor.
 
-### 22–26: Index Management & Queries
-- **22-index-management.png**  
-  Index Management showing Suricata indices
+**07b-kali-suricata-evejson.png**  
+Suricata actively generating `eve.json` logs.
 
-- **23–25-hunting-queries.png**  
-  Threat hunting queries executed in Discover
-
-- **26-threat-hunting-query.png**  
-  Final validated threat hunting results
+**09-kali-filebeat-test-output.png**  
+Filebeat output test confirming Elasticsearch connectivity.
 
 ---
 
-## Purpose
+## 11–17: Elasticsearch Security & Index Validation
+
+**09a-kali-elastic-repo-added.png**  
+Elastic repository added on Kali system.
+
+**09a-kali-filebeat-config-clean.png**  
+Clean Filebeat configuration for Suricata logs.
+
+**09b-kali-filebeat-running.png**  
+Filebeat service running on Kali.
+
+**12-ubuntu-elasticsearch-security-401.png**  
+Elasticsearch security enforcement confirmed (401 Unauthorized).
+
+**13-ubuntu-elasticsearch-auth-success.png**  
+Successful authenticated access to Elasticsearch.
+
+**14-ubuntu-logstash-config-validation-ok.png**  
+Logstash configuration validation passed.
+
+**15-ubuntu-logstash-running.png**  
+Logstash service running successfully.
+
+**16-ubuntu-logstash-5044-listening.png**  
+Logstash confirmed listening on port `5044`.
+
+**17-ubuntu-es-soc-lab-suricata-index.png**  
+`soc-lab-suricata-*` indices created in Elasticsearch.
+
+---
+
+## 18–21: Kibana Setup & Event Visibility
+
+**18-kibana-welcome-home-dashboard.png**  
+Kibana home dashboard accessible.
+
+**19-ubuntu-elasticsearch-running-after-reboot.png**  
+Elasticsearch persistence verified after system reboot.
+
+**21 - Kibana Discover - soc-lab-suricata - event_type http-flow.png**  
+Suricata HTTP and flow events visible in Kibana Discover.
+
+Key fields displayed:
+- `@timestamp`
+- `event_type`
+- `src_ip`
+- `dest_ip`
+- `dest_port`
+- `http.url`
+
+---
+
+## 22–26: Index Management & Threat Hunting
+
+**22_index_management_suricata_indices.png**  
+Index Management view showing Suricata indices.
+
+**23_services_running_elastic_stack.png**  
+All Elastic Stack services running.
+
+**24_kibana_stack_overview.png**  
+Kibana Stack Overview confirming cluster health.
+
+**25_data_view_soc_lab_suricata.png**  
+Data view created for `soc-lab-suricata-*`.
+
+**26_threat_hunting_query_example.png**  
+Example threat hunting query executed in Kibana Discover with results.
+
+---
+
+##  Purpose
+
 These screenshots provide visual proof that:
-- Logs are generated by Suricata
-- Successfully shipped by Filebeat
-- Processed by Logstash
-- Indexed in Elasticsearch
-- Actively analyzed in Kibana Discover
+
+- Logs are generated by **Suricata**
+- Successfully shipped by **Filebeat**
+- Processed by **Logstash**
+- Indexed in **Elasticsearch**
+- Actively analyzed in **Kibana Discover**
 
 This mirrors a real-world SOC log ingestion and threat hunting workflow.
 
 ---
 
-## Status
-✅ All screenshots captured  
-✅ End-to-end pipeline validated  
-✅ Lab fully operational
+## ✅ Status
+
+- ✅ All screenshots captured  
+- ✅ End-to-end pipeline validated  
+- ✅ Threat hunting queries confirmed  
+- ✅ Lab fully operational  
