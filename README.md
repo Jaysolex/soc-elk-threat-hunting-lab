@@ -4,6 +4,30 @@
 > A full end-to-end Security Operations Center (SOC) threat hunting lab demonstrating real-world network telemetry ingestion, processing, indexing, and investigation using the Elastic Stack.
 
 ---
+## 👤 Author & Professional Focus
+
+**Author:** Solomon James  
+**Target Role:** SOC Analyst / Detection Engineer  
+
+**Primary Focus:**  
+- Network-based threat detection  
+- Endpoint & network telemetry correlation  
+- End-to-end log visibility for security operations  
+
+**Core Skills Demonstrated:**  
+- IDS telemetry analysis (Suricata)  
+- Log pipeline engineering (Filebeat → Logstash → Elasticsearch)  
+- Threat hunting with real network data in Kibana  
+- SOC-style validation and investigation workflows  
+
+**Frameworks & Methodologies:**  
+- MITRE ATT&CK  
+- Detection Engineering Lifecycle  
+- Blue Team operational logging practices  
+
+> This project is designed to mirror how modern SOC teams ingest, normalize, and hunt on real security telemetry — not simulated datasets.
+
+---
 
 ##  Project Overview
 
