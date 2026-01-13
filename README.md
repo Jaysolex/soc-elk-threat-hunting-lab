@@ -24,6 +24,8 @@ Every stage is **validated with screenshots** to prove real data flow and operat
 
 ![SOC ELK Threat Hunting Architecture](screenshots/ELK-threath-hunting-Archetecture.png.png)
 
+*Figure 1: End-to-end SOC ELK threat hunting architecture showing data flow from Suricata to Kibana.*
+
 ### 🔄 Data Flow
 
 1. **Suricata (Kali Linux)**  
